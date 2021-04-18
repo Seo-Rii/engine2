@@ -10,4 +10,4 @@ export default `
         gl_Position = u_matrix * a_position;
         v_color = a_color;
     }
-`;
+`
