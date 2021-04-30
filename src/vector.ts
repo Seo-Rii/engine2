@@ -1,13 +1,13 @@
 export class Vector {
-  x = 0;
-  y = 0;
-  z = 0;
+    x = 0
+    y = 0
+    z = 0
 
-  constructor(x1, y1, z1) {
-    this.x = x1;
-    this.y = y1;
-    this.z = z1;
-  }
+    constructor(x1: number, y1: number, z1: number) {
+        this.x = x1
+        this.y = y1
+        this.z = z1
+    }
 
     print() {
         console.log(`x좌표:${this.x}, y좌표:${this.y}, z좌표:${this.z}`)
