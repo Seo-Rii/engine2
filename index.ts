@@ -5,6 +5,7 @@ import { draw } from './src/draw'
 import { Polygon } from './src/polygon'
 import cobj from './model/cube'
 import fobj from './model/F'
+import robj from './model/paraboloid'
 import ground from './model/ground'
 
 let app,
@@ -46,7 +47,9 @@ function init() {
 
     pol.push(new Polygon(gl, ground(), [0, 0, 0]))
     pol.push(new Polygon(gl, fobj(), [0, -300, 0]))
-    pol.push(new Polygon(gl, cobj(), [120, -300, 0]))
+    pol.push(new Polygon(gl, robj(), [0, 0, -100]))
+
+    pol[2].rSpeed=[0.001, 0, 0]
 
     lastTime = Date.now()
 
@@ -57,7 +60,7 @@ function loop() {
     let nowTime = Date.now(),
         timeDiff = nowTime - lastTime
     fpsCounter.innerText = `${(1000 / timeDiff).toFixed(0)}fps`
-    for (let i of pol) i.addSpeed(gravity)
+    //for (let i of pol) i.addSpeed(gravity)
     for (let i of pol) i.move(timeDiff)
     for (let i of pol) {
         if (i.pos[1] > 0) {
